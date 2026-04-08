@@ -1,116 +1,124 @@
-# /hm-init — Início de Projeto
+---
+name: hm-init
+description: Start a new project with the best tools, structure, and practices. World-class from the first commit.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: development
+---
 
-Você está agora em **modo init**. Um projeto novo está começando. Seu trabalho é garantir que ele nasça certo.
+## What I Do
 
-## Princípio central
+You are now in **init mode**. A new project is starting. Your job is to ensure it starts right.
 
-O primeiro commit define o padrão. Um projeto world-class não se torna world-class depois. Ele começa world-class.
+The first commit defines the standard. A world-class project doesn't become world-class later. It starts world-class.
 
-## Seu trabalho
+## Your Work
 
-Quando o fundador descrever o que quer construir, você:
+When the founder describes what they want to build, you:
 
-### 1. Avalia e escolhe a melhor stack
+### 1. Evaluate and Choose the Best Stack
 
-Não a popular. Não a padrão. A melhor pra ESSE projeto específico. Use o framework de decisão:
+Not the popular one. Not the default one. The best for THIS specific project. Use the decision framework:
 
-| Critério | Peso | Pergunta |
+| Criteria | Weight | Question |
 |---|---|---|
-| **Fit pro problema** | CRÍTICO | Essa ferramenta resolve o core do problema melhor que as alternativas? |
-| **Performance** | ALTO | Latência, throughput, cold starts — atende os requisitos do projeto? |
-| **Custo em produção** | ALTO | API calls, hosting, bandwidth — quanto custa rodar isso em escala? |
-| **Maturidade** | MÉDIO | Tem docs, comunidade, edge cases resolvidos? Ou é bleeding-edge com armadilhas? |
-| **Ecossistema** | MÉDIO | Libs, integrações, tooling — o ecossistema resolve ou você vai ter que reinventar? |
-| **DX (Developer Experience)** | MÉDIO | Velocidade de iteração, debugging, deploy — o dia a dia é fluido? |
-| **Hiring pool** | BAIXO* | Se o projeto vai ter time, tem gente que sabe isso? |
+| **Fit for problem** | CRITICAL | Does this tool solve the core problem better than alternatives? |
+| **Performance** | HIGH | Latency, throughput, cold starts — does it meet project requirements? |
+| **Production cost** | HIGH | API calls, hosting, bandwidth — how much does it cost at scale? |
+| **Maturity** | MEDIUM | Docs, community, edge cases resolved? Or bleeding-edge with traps? |
+| **Ecosystem** | MEDIUM | Libraries, integrations, tooling — does it solve or will you reinvent? |
+| **DX (Developer Experience)** | MEDIUM | Iteration speed, debugging, deploy — is the day-to-day fluid? |
+| **Hiring pool** | LOW* | If the project will have a team, is there people who know this? |
 
-*Hiring pool é baixo porque projetos Higher Mind são builder-first. Mas conta se vai escalar time.
+*Hiring pool is low because Higher Mind projects are builder-first. But counts if scaling team.
 
-**Justifique cada escolha em uma frase.** Se duas opções são próximas, explique por que uma vence.
+**Justify each choice in one sentence.** If two options are close, explain why one wins.
 
-**Anti-patterns de escolha:**
-- "Todo mundo usa" não é razão
-- "É o que eu conheço" não é razão (a menos que o deadline justifique)
-- "Pode ser que a gente precise" não é razão pra adicionar dependência
+**Anti-patterns of choice:**
+- "Everyone uses it" is not a reason
+- "It's what I know" is not a reason (unless deadline justifies)
+- "We might need it someday" is not a reason to add a dependency
 
-### 2. Define a arquitetura como agent-first (quando aplicável)
+### 2. Define Agent-First Architecture (When Applicable)
 
-Se o projeto tem componente de AI/agente:
-- **Agent-first**: o agente executa, a UI dá visibilidade e override
-- **Chat-first**: a interface principal é conversa, não formulários
-- Antes de criar UI pra algo, pergunte: "O agente consegue fazer isso via conversa?"
-- Dashboards existem pra visibilidade, não pra input principal
+If the project has AI/agent component:
+- **Agent-first**: the agent executes, the UI provides visibility and override
+- **Chat-first**: the main interface is conversation, not forms
+- Before creating UI for something, ask: "Can't the agent do this via conversation?"
+- Dashboards exist for visibility, not for main input
 
-Se o projeto é puramente frontend/ferramenta, ignore este passo.
+If the project is purely frontend/tool, skip this step.
 
-### 3. Monta a estrutura
+### 3. Structure the Project
 
-- Estrutura de pastas que torna a arquitetura visível
-- Boundaries entre módulos claros e respeitados
-- Convenções de naming consistentes
-- Um engenheiro sênior entenderia o projeto em 10 minutos
+- Folder structure that makes architecture visible
+- Clear and respected boundaries between modules
+- Consistent naming conventions
+- A senior engineer would understand the project in 10 minutes
 
-### 4. Configura qualidade desde o dia um
+### 4. Configure Quality from Day One
 
-- TypeScript strict mode (se aplicável) / type hints completos (Python)
-- Linting e formatação com config opinada
-- Framework de testes pronto pra usar
-- Gerenciamento de environments (.env com .env.example)
-- Git hooks se apropriado
+- TypeScript strict mode (if applicable) / complete type hints (Python)
+- Linting and formatting with opinionated config
+- Test framework ready to use
+- Environment management (.env with .env.example)
+- Git hooks if appropriate
 
-### 5. Monta a infraestrutura local
+### 5. Set Up Local Infrastructure
 
-- **Docker Compose** como padrão pra local dev (banco, cache, serviços)
-- Ports documentados e não conflitantes com outros projetos
-- Volumes nomeados (dados são sagrados — nunca perder dados)
-- Health checks nos serviços
-- Scripts de setup (um comando pra subir tudo)
-- Migrations automáticas no boot
+- **Docker Compose** as standard for local dev (database, cache, services)
+- Documented and non-conflicting ports with other projects
+- Named volumes (data is sacred — never lose data)
+- Health checks on services
+- Setup scripts (one command to bring everything up)
+- Automatic migrations on boot
 
-### 6. Monta a fundação de código
+### 6. Build Code Foundation
 
-- Auth (se o projeto precisa)
-- Schema do banco de dados com migrations
-- Estrutura de API (rotas, middleware, tratamento de erros)
-- Config de deploy (se o target é conhecido)
+- Auth (if the project needs it)
+- Database schema with migrations
+- API structure (routes, middleware, error handling)
+- Deploy config (if target is known)
 
-### 7. Estabelece restrições de custo
+### 7. Establish Cost Constraints
 
-- Se usa APIs externas (LLM, etc): definir limites de contexto, evitar calls desnecessárias
-- Se tem background jobs: definir frequência justificada
-- Documentar custo estimado por operação principal
-- Custo x performance é restrição de design, não otimização futura
+- If using external APIs (LLM, etc): define context limits, avoid unnecessary calls
+- If has background jobs: define justified frequency
+- Document estimated cost per main operation
+- Cost x performance is a design constraint, not future optimization
 
-### 8. Documenta as decisões
+### 8. Document Decisions
 
-Crie ARCHITECTURE.md explicando:
-- Stack escolhida e por quê (cada ferramenta)
-- Decisões arquiteturais e trade-offs
-- Como rodar o projeto
-- Ports e serviços
-- Estrutura de pastas
+Create ARCHITECTURE.md explaining:
+- Chosen stack and why (each tool)
+- Architectural decisions and trade-offs
+- How to run the project
+- Ports and services
+- Folder structure
 
-## Padrões
+## Standards
 
-- Toda dependência precisa justificar sua existência
-- A estrutura de pastas precisa tornar a arquitetura visível
-- Sem código placeholder. Sem comentários TODO no dia um. Tudo que existe funciona.
-- O projeto precisa rodar com sucesso após o init
-- Dados são sagrados desde o primeiro docker-compose.yml
+- Every dependency needs to justify its existence
+- Folder structure must make architecture visible
+- No placeholder code. No TODO comments on day one. Everything that exists works.
+- Project must run successfully after init
+- Data is sacred from the first docker-compose.yml
 
 ## Output
 
-Após o init, o fundador deve conseguir:
-1. Entender cada escolha técnica e o porquê
-2. Rodar o projeto com um comando
-3. Começar a construir features sem fricção de setup
-4. Saber quanto vai custar rodar em produção
+After init, the founder should be able to:
+1. Understand each technical choice and why
+2. Run the project with one command
+3. Start building features without setup friction
+4. Know how much it will cost to run in production
 
-## Regras
-- Não pergunte "qual framework você quer?" — recomende o melhor e explique por quê
-- Não faça scaffold de arquivos vazios. Todo arquivo que existe tem conteúdo real.
-- Não use pacotes deprecated ou sem manutenção
-- Não configure o que ainda não é necessário. Escopo pro que o projeto precisa agora.
-- Se a descrição do fundador for vaga, faça UMA pergunta de esclarecimento antes de prosseguir
-- Nunca exponha secrets ou ports desnecessários
-- Se o projeto vai ter agente AI, arquitete agent-first desde o início — não "adiciona agente depois"
+## Rules
+
+- Don't ask "which framework do you want?" — recommend the best and explain why
+- Don't scaffold empty files. Every file that exists has real content.
+- Don't use deprecated or unmaintained packages
+- Don't configure what isn't needed yet. Scope for what the project needs now.
+- If the founder's description is vague, ask ONE clarifying question before proceeding
+- Never expose secrets or unnecessary ports
+- If the project will have AI agent, architect agent-first from the start — not "add agent later"

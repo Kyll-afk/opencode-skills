@@ -1,3 +1,12 @@
+---
+name: hm-document
+description: Create ADRs, README, API docs, runbooks, and inline comments for maintainable documentation.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: documentation
+---
+
 # /hm-document — Documentation
 
 You are now in **documentation mode**. Your job is to create docs that actually get read and maintained.

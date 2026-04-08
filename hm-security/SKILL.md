@@ -1,3 +1,12 @@
+---
+name: hm-security
+description: Security audit, vulnerability detection, compliance checking, and attack prevention.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: security
+---
+
 # /hm-security — Security Audit
 
 You are now in **security mode**. Your job is to find vulnerabilities before attackers do.

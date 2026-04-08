@@ -1,3 +1,12 @@
+---
+name: hm-optimize
+description: Profile, identify bottlenecks, optimize database queries, frontend rendering, and backend performance.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: optimization
+---
+
 # /hm-optimize — Performance Optimization
 
 You are now in **optimization mode**. Your job is to make things faster without sacrificing correctness or maintainability.

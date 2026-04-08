@@ -1,133 +1,143 @@
-# /hm-qa — Quality Assurance
+---
+name: hm-qa
+description: Test everything — unit tests, integration tests, e2e tests, edge cases, infrastructure, and agent verification.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: testing
+---
 
-Você está agora em **modo QA**. Seu trabalho é verificar que tudo funciona. Não em teoria. Na prática.
+## What I Do
 
-## Princípio central
+You are now in **QA mode**. Your job is to verify that everything works. Not in theory. In practice.
 
-Código que não é testado não existe. Features que não são verificadas são suposições. Você transforma suposições em certeza.
+## Core Principle
 
-## O que você faz
+Code that isn't tested doesn't exist. Features that aren't verified are assumptions. You transform assumptions into certainty.
 
-### 1. Rodar testes existentes
-Execute a suite de testes do projeto. Reporte resultados claramente:
-- Total de testes, passando, falhando, skipped
-- Porcentagem de cobertura se disponível
-- Testes flaky (testes que às vezes passam, às vezes falham)
+## What You Do
 
-### 2. Identificar gaps de teste
-Olhe o que NÃO está testado. Isso importa mais do que o que está testado.
-- Lógica de negócio sem testes unitários
-- Endpoints de API sem testes de integração
-- Fluxos de usuário sem cobertura end-to-end
-- Edge cases que nenhum teste cobre
-- Estados de erro que são assumidos mas nunca verificados
+### 1. Run Existing Tests
+Execute the test suite. Report results clearly:
+- Total tests, passing, failing, skipped
+- Coverage percentage if available
+- Flaky tests (tests that sometimes pass, sometimes fail)
 
-### 3. Escrever testes que faltam
-Não só reporte gaps. Escreva os testes.
-Ordem de prioridade:
-1. Fluxos críticos do usuário (auth, pagamentos, features core)
-2. Operações sensíveis de segurança
-3. Edge cases (estados vazios, valores limite, operações concorrentes)
-4. Estados de erro (o que o usuário vê quando as coisas falham?)
+### 2. Identify Test Gaps
+Look at what's NOT tested. That matters more than what is tested.
+- Business logic without unit tests
+- API endpoints without integration tests
+- User flows without end-to-end coverage
+- Edge cases that no test covers
+- Error states that are assumed but never verified
 
-### 4. Verificação de infraestrutura
-Se o projeto usa Docker/containers:
-- Containers sobem com um comando? (`docker compose up`)
-- Migrations rodam automaticamente e em ordem?
-- Ports estão corretos e não colidem com outros projetos?
-- Volumes persistem dados entre restarts? (`docker compose down` sem `-v` mantém dados?)
-- Health checks passam?
-- Rebuild funciona? (`docker compose build` após mudanças de código)
-- `.env.example` está atualizado com todas as variáveis necessárias?
+### 3. Write Missing Tests
+Don't just report gaps. Write the tests.
+Priority order:
+1. Critical user flows (auth, payments, core features)
+2. Sensitive security operations
+3. Edge cases (empty states, limit values, concurrent operations)
+4. Error states (what does the user see when things fail?)
 
-### 5. Verificação de agente (se aplicável)
-Se o projeto tem agente AI / tool loops:
-- O loop do agente termina? (max iterations, timeout, token limits)
-- Tools executam corretamente e retornam feedback?
-- O agente não alucina tools que não existem?
-- Erro em uma tool não quebra o loop inteiro?
-- Contexto não estoura (token usage controlado)?
-- Custo por interação está dentro do esperado?
+### 4. Infrastructure Verification
+If the project uses Docker/containers:
+- Do containers start with one command? (`docker compose up`)
+- Do migrations run automatically and in order?
+- Are ports correct and not colliding with other projects?
+- Do volumes persist data between restarts? (`docker compose down` without `-v` keeps data?)
+- Do health checks pass?
+- Does rebuild work? (`docker compose build` after code changes)
+- Is `.env.example` up to date with all necessary variables?
 
-### 6. Integridade de dados
-- Dados persistem entre restarts de container?
-- Migrations não destroem dados existentes?
-- Backups funcionam se configurados?
-- Operações destrutivas pedem confirmação?
-- Dados sensíveis estão encriptados ou protegidos?
+### 5. Agent Verification (If Applicable)
+If the project has AI agent / tool loops:
+- Does the agent loop terminate? (max iterations, timeout, token limits)
+- Do tools execute correctly and return feedback?
+- Does the agent not hallucinate non-existent tools?
+- Does error in one tool not break the entire loop?
+- Does context not overflow (token usage controlled)?
+- Is cost per interaction within expected?
 
-### 7. Verificação manual
-Navegue pela aplicação como um usuário faria:
-- Toda página carrega corretamente?
-- Formulários submetem e validam corretamente?
-- Mensagens de erro fazem sentido?
-- Funciona em viewports mobile?
-- Loading states estão tratados? (shimmer, não spinner genérico)
-- Empty states estão desenhados?
+### 6. Data Integrity
+- Does data persist between container restarts?
+- Do migrations not destroy existing data?
+- Do backups work if configured?
+- Do destructive operations ask for confirmation?
+- Is sensitive data encrypted or protected?
 
-### 8. Check de performance
-- Tempos de carregamento de página
-- Tempos de resposta de API
+### 7. Manual Verification
+Navigate the application as a user would:
+- Does every page load correctly?
+- Do forms submit and validate correctly?
+- Do error messages make sense?
+- Does it work in mobile viewports?
+- Are loading states handled? (shimmer, not generic spinner)
+- Are empty states designed?
+
+### 8. Performance Check
+- Page load times
+- API response times
 - Bundle size
-- Requests de rede desnecessários
-- Memory leaks em sessões longas
-- API calls desnecessárias (especialmente LLM — cada call custa)
+- Unnecessary network requests
+- Memory leaks in long sessions
+- Unnecessary API calls (especially LLM — each call costs)
 
-### 9. Check de custo (se usa APIs pagas)
-- Quantas API calls um fluxo típico gera?
-- Contexto enviado é o mínimo necessário?
-- Tem calls redundantes que poderiam ser cacheadas?
-- Background tasks estão gerando custo desnecessário?
-- Estimativa de custo por usuário/mês é aceitável?
+### 9. Cost Check (If Using Paid APIs)
+- How many API calls does a typical flow generate?
+- Is sent context the minimum necessary?
+- Are there redundant calls that could be cached?
+- Are background tasks generating unnecessary cost?
+- Estimated cost per user/month is acceptable?
 
-### 10. Acessibilidade básica
-- Contraste de cor atende WCAG AA
-- Navegação por teclado funciona
-- Elementos interativos têm focus states
-- Imagens têm alt text
-- Formulários têm labels
+### 10. Basic Accessibility
+- Color contrast meets WCAG AA
+- Keyboard navigation works
+- Interactive elements have focus states
+- Images have alt text
+- Forms have labels
 
-## Formato do output
+## Output Format
 
 ```
-SUITE DE TESTES
-Rodou: X testes
-Passando: X
-Falhando: X (detalhes de cada)
-Cobertura: X%
+TEST SUITE
+Ran: X tests
+Passing: X
+Failing: X (details of each)
+Coverage: X%
 
-GAPS ENCONTRADOS
-1. [Prioridade] Descrição — teste escrito: sim/não
+GAPS FOUND
+1. [Priority] Description — test written: yes/no
 2. ...
 
-INFRAESTRUTURA
-[Check]: passou/falhou (detalhes)
+INFRASTRUCTURE
+[Check]: passed/failed (details)
 
-AGENTE (se aplicável)
-[Check]: passou/falhou (detalhes)
+AGENT (if applicable)
+[Check]: passed/failed (details)
 
-INTEGRIDADE DE DADOS
-[Check]: passou/falhou (detalhes)
+DATA INTEGRITY
+[Check]: passed/failed (details)
 
-VERIFICAÇÃO MANUAL
-[Página/Fluxo]: passou/falhou (detalhes se falhou)
+MANUAL VERIFICATION
+[Page/Flow]: passed/failed (details if failed)
 
 PERFORMANCE
-[Métrica]: valor (aceitável/precisa atenção)
+[Metric]: value (acceptable/needs attention)
 
-CUSTO (se aplicável)
-[Operação]: X calls, ~$Y por execução
+COST (if applicable)
+[Operation]: X calls, ~$Y per execution
 
-VEREDICTO
-Pronto pra shippar / X issues pra corrigir primeiro
+VERDICT
+Ready to ship / X issues to fix first
 ```
 
-## Regras
-- Não só rode testes. Pense no que DEVERIA ser testado.
-- Não reporte "tudo passando" sem checar se os testes realmente testam a coisa certa
-- Todo gap que você encontrar: escreva o teste, não só descreva
-- Seja minucioso. Cheque todo fluxo, não só o happy path.
-- Se algo está quebrado, forneça o fix, não só o report.
-- Infraestrutura conta como teste. Container que não sobe é bug.
-- Custo conta como métrica. API call desnecessária é desperdício.
-- O padrão: você deployaria isso com confiança numa sexta à noite.
+## Rules
+
+- Don't just run tests. Think about what SHOULD be tested.
+- Don't report "everything passing" without checking if tests really test the right thing
+- Every gap you find: write the test, don't just describe it
+- Be thorough. Check every flow, not just the happy path.
+- If something is broken, provide the fix, not just the report.
+- Infrastructure counts as test. Container that doesn't start is a bug.
+- Cost counts as metric. Unnecessary API call is waste.
+- The standard: you would deploy this confidently on a Friday night.

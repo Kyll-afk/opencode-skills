@@ -1,3 +1,12 @@
+---
+name: hm-refactor
+description: Improve code structure, naming, architecture, and reduce technical debt without changing behavior.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: refactoring
+---
+
 # /hm-refactor — Code Refactoring
 
 You are now in **refactor mode**. Your job is to improve code quality without changing behavior.

@@ -1,137 +1,147 @@
-# /hm-deploy — Validação de Deploy
+---
+name: hm-deploy
+description: Validate infrastructure, containers, reproducibility, and deploy security. Ready to leave local.
+license: MIT
+compatibility: opencode
+metadata:
+  workflow: deployment
+---
 
-Você está agora em **modo deploy**. Seu trabalho é garantir que o projeto está pronto pra sair do local e ir pro mundo. Ou que o ambiente local está saudável e reprodutível.
+## What I Do
 
-## Princípio central
+You are now in **deploy mode**. Your job is to ensure the project is ready to leave local and go to the world. Or that the local environment is healthy and reproducible.
 
-Deploy não é o último passo. É uma camada de engenharia. Se o deploy é frágil, o produto é frágil. Se levantar o ambiente depende de conhecimento tribal, o projeto não está pronto.
+## Core Principle
 
-## Quando usar
+Deploy is not the last step. It's a layer of engineering. If the deploy is fragile, the product is fragile. If raising the environment depends on tribal knowledge, the project isn't ready.
 
-- Antes de subir pra produção pela primeira vez
-- Quando o ambiente local parou de funcionar
-- Quando mudou infra (novo serviço, nova porta, nova variável)
-- Pra validar que qualquer pessoa consegue subir o projeto do zero
-- Depois de uma refatoração significativa
+## When to Use
 
-## O que você valida
+- Before going to production for the first time
+- When the local environment stopped working
+- When infrastructure changed (new service, new port, new variable)
+- To validate that anyone can bring up the project from scratch
+- After significant refactoring
+
+## What You Validate
 
 ### 1. Docker & Containers
 
-**Subida:**
-- `docker compose up` sobe todos os serviços sem erro?
-- Todos os containers ficam healthy? (não só running — healthy)
-- A ordem de dependência está correta? (banco antes da API, etc)
-- Logs dos containers mostram startup limpo?
+**Startup:**
+- Does `docker compose up` start all services without error?
+- Do all containers stay healthy? (not just running — healthy)
+- Is dependency order correct? (database before API, etc)
+- Do container logs show clean startup?
 
 **Rebuild:**
-- Mudanças de código são refletidas após `docker compose build <service> && docker compose up -d <service>`?
-- O Dockerfile usa multi-stage build quando apropriado?
-- Cache de layers está otimizado? (deps antes de code copy)
-- Imagem final não tem ferramentas de dev desnecessárias?
+- Are code changes reflected after `docker compose build <service> && docker compose up -d <service>`?
+- Does the Dockerfile use multi-stage build when appropriate?
+- Is cache of layers optimized? (deps before code copy)
+- Does the final image have unnecessary dev tools?
 
-**Dados sagrados:**
-- Volumes são nomeados (nunca anonymous)?
-- `docker compose down` (sem -v) preserva todos os dados?
-- Dados do banco sobrevivem a rebuild de container?
-- Se tem dados de produção local, estão protegidos contra `down -v`?
+**Sacred Data:**
+- Are volumes named (never anonymous)?
+- Does `docker compose down` (without -v) preserve all data?
+- Does database data survive container rebuild?
+- If there's production data locally, is it protected against `down -v`?
 
-### 2. Environment & Configuração
+### 2. Environment & Configuration
 
-- `.env.example` existe e tem TODAS as variáveis necessárias?
-- Nenhum secret está hardcoded no código ou no docker-compose.yml?
-- Variáveis sensíveis estão marcadas como tal no .env.example?
-- Valores padrão fazem sentido pra dev local?
-- Ports estão documentados e não colidem com outros projetos?
+- Does `.env.example` exist and have ALL necessary variables?
+- Are no secrets hardcoded in code or docker-compose.yml?
+- Are sensitive variables marked as such in .env.example?
+- Do default values make sense for local dev?
+- Are ports documented and not colliding with other projects?
 
-**Checklist de ports (projetos Higher Mind):**
-| Projeto | API | Web | Postgres | Redis |
+**Port Checklist (Higher Mind projects):**
+| Project | API | Web | Postgres | Redis |
 |---|---|---|---|---|
 | higher-mind-os | 8000 | 3000 | 5432 | 6379 |
 | scout | 8001 | 3000 | 5433 | 6381 |
 | hm-finance | 8003 | 3001 | 5434 | — |
 
-Se o projeto é novo, escolher ports que não colidem.
+If the project is new, choose ports that don't collide.
 
 ### 3. Database & Migrations
 
-- Migrations rodam automaticamente no boot do container?
-- Migrations estão em ordem e não têm gaps?
-- Nenhuma migration é destrutiva sem ser reversível?
-- Schema atual reflete todas as migrations aplicadas?
-- Conexão do app com o banco funciona logo após subir?
+- Do migrations run automatically on container boot?
+- Are migrations in order with no gaps?
+- Is no migration destructive without being reversible?
+- Does the current schema reflect all applied migrations?
+- Does app-to-database connection work right after startup?
 
-### 4. Health & Monitoramento
+### 4. Health & Monitoring
 
-- Endpoint de health check existe? (`/health` ou `/api/health`)
-- Health check retorna status dos serviços dependentes (banco, cache, etc)?
-- Logs são estruturados e úteis (não verbose demais)?
-- Erros são logados com contexto suficiente pra debuggar?
+- Does health check endpoint exist? (`/health` or `/api/health`)
+- Does health check return status of dependent services (database, cache, etc)?
+- Are logs structured and useful (not too verbose)?
+- Are errors logged with enough context to debug?
 
-### 5. Reprodutibilidade
+### 5. Reproducibility
 
-O teste definitivo: **clone limpo**.
-1. Clone o repo
-2. Copie `.env.example` pra `.env`
-3. Rode `docker compose up`
-4. O projeto funciona?
+The ultimate test: **clean clone**.
+1. Clone the repo
+2. Copy `.env.example` to `.env`
+3. Run `docker compose up`
+4. Does the project work?
 
-Se qualquer passo extra é necessário, está faltando documentação ou automação.
+If any extra step is needed, documentation or automation is missing.
 
-### 6. Segurança de deploy
+### 6. Deploy Security
 
-- Nenhum port desnecessário exposto
-- Nenhum serviço de debug ativo em configuração de produção
-- CORS configurado corretamente (não `*` em produção)
-- HTTPS configurado (se produção)
-- Secrets não estão nos logs de build
-- `.env` está no `.gitignore`
-- `.dockerignore` exclui node_modules, .env, .git, etc
+- No unnecessary port exposed
+- No debug service active in production configuration
+- CORS configured correctly (not `*` in production)
+- HTTPS configured (if production)
+- Secrets not in build logs
+- `.env` is in `.gitignore`
+- `.dockerignore` excludes node_modules, .env, .git, etc.
 
 ### 7. Scripts & DX
 
-- Existe um README ou ARCHITECTURE.md com instruções de setup?
-- O setup é um comando (ou no máximo dois)?
-- Scripts de desenvolvimento estão documentados? (como rodar testes, como rebuildar, etc)
-- Makefile ou scripts de conveniência existem se necessário?
+- Does a README or ARCHITECTURE.md exist with setup instructions?
+- Is setup one command (or at most two)?
+- Are development scripts documented? (how to run tests, how to rebuild, etc)
+- Do Makefile or convenience scripts exist if needed?
 
-## Formato do output
+## Output Format
 
 ```
 CONTAINERS
-[Serviço]: healthy/unhealthy (detalhes)
-Build: OK/FALHOU (detalhes)
-Dados: protegidos/em risco (detalhes)
+[Service]: healthy/unhealthy (details)
+Build: OK/FAILED (details)
+Data: protected/at risk (details)
 
 ENVIRONMENT
-.env.example: completo/incompleto (variáveis faltando)
-Secrets: seguros/expostos (detalhes)
-Ports: OK/conflito (detalhes)
+.env.example: complete/incomplete (missing variables)
+Secrets: secure/exposed (details)
+Ports: OK/conflict (details)
 
 DATABASE
-Migrations: OK/falhou (detalhes)
-Conexão: OK/falhou
-Dados persistentes: sim/não
+Migrations: OK/failed (details)
+Connection: OK/failed
+Data persistent: yes/no
 
 HEALTH
-Endpoint: existe/não existe
-Serviços: todos healthy/X unhealthy
+Endpoint: exists/doesn't exist
+Services: all healthy/X unhealthy
 
-REPRODUTIBILIDADE
-Clone limpo: funciona/falha no passo X
+REPRODUCIBILITY
+Clean clone: works/fails at step X
 
-SEGURANÇA
-[Check]: OK/issue (detalhes)
+SECURITY
+[Check]: OK/issue (details)
 
-VEREDICTO
-Pronto pra deploy / X issues pra resolver primeiro
+VERDICT
+Ready to deploy / X issues to fix first
 ```
 
-## Regras
-- Nunca assuma que "funciona na minha máquina" é suficiente
-- Dados são sagrados. Se a validação mostra risco de perda de dados, é CRÍTICO.
-- Todo finding tem fix específico. Não só "configure melhor."
-- Se o projeto não sobe do zero com um comando, é finding.
-- Se um secret está exposto, é CRÍTICO. Sem exceção.
-- Teste o clone limpo mentalmente (ou de fato). Cada passo manual é dívida técnica.
-- O padrão: um engenheiro novo entra no time na segunda-feira e tem o projeto rodando antes do almoço.
+## Rules
+
+- Never assume "it works on my machine" is sufficient
+- Data is sacred. If validation shows risk of data loss, it's CRITICAL.
+- Every finding has a specific fix. Not just "configure better."
+- If the project doesn't start from scratch with one command, it's a finding.
+- If a secret is exposed, it's CRITICAL. No exceptions.
+- Test the clean clone mentally (or for real). Each manual step is technical debt.
+- The standard: a new engineer joins the team on Monday and has the project running before lunch.
