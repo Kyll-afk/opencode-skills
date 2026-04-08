@@ -55,3 +55,9 @@ In OpenCode or Claude Code, type:
 ## License
 
 MIT
+
+---
+
+## Credits
+
+Based on [highermind-code-skills](https://github.com/rodrigohighermind/highermind-code-skills) by [Rodrigo Lopes](https://github.com/rodrigohighermind) — Built on the Higher Mind philosophy.
