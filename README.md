@@ -1,287 +1,314 @@
 # highermind-code-skills
 
-**Antes de existir uma empresa, existiu uma mente que decidiu construir.**
+**Before there was a company, there was a mind that decided to build.**
 
-Cinco modos cognitivos de execução para o [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Construído em cima da filosofia Higher Mind: empresas são extensões da arquitetura interna do fundador. Se o código é mediano, o padrão era mediano. Se o software é world-class, a mente por trás dele exigiu world-class.
+Ten cognitive execution modes for [Claude Code](https://docs.anthropic.com/en/docs/claude-code). Built on the Higher Mind philosophy: companies are extensions of the founder's internal architecture. If the code is mediocre, the pattern was mediocre. If the software is world-class, the mind behind it demanded world-class.
 
-Skills de direção estratégica (`/hm-align`, `/hm-sequoia`) estão em [highermind-business-skills](https://github.com/rodrigohighermind/highermind-business-skills).
+Strategic direction skills (`/hm-align`, `/hm-sequoia`) are in [highermind-business-skills](https://github.com/rodrigohighermind/highermind-business-skills).
 
-Isso não é um pack de prompts. É um padrão, codificado uma vez, pra você nunca mais ter que se repetir.
-
----
-
-### O problema
-
-Toda vez que você abre o Claude Code, você começa do zero. O agente não sabe qual é a sua barra. Não sabe que "bom o suficiente" não é suficiente. Não sabe que você pensa em décadas, não em sprints. Então você se repete:
-
-- "Faz world-class."
-- "Checa segurança. Todas as camadas."
-- "O design precisa ser nível Apple."
-- "Roda testes. Cobre tudo."
-Você fala as mesmas coisas, com palavras diferentes, toda vez. A qualidade do output depende de quão bem você traduz o seu padrão naquele momento específico.
-
-highermind-code-skills resolve isso. Você traduz o seu padrão uma vez. Depois ele está sempre lá.
+This is not a prompt pack. It's a pattern, coded once, so you never have to repeat yourself.
 
 ---
 
-### Como funciona
+## The Problem
 
-Duas camadas:
+Every time you open Claude Code, you start from scratch. The agent doesn't know your bar. Doesn't know that "good enough" isn't enough. Doesn't know you think in decades, not sprints. So you repeat:
 
-**CLAUDE.md** — sua identidade. Sempre ativo. Todo projeto, toda sessão. O agente sabe quem você é, qual é a sua barra, e que mediocridade não é opção. Você nunca mais precisa explicar isso.
+- "Make it world-class."
+- "Check security. All layers."
+- "The design needs to be Apple-level."
+- "Run tests. Cover everything."
 
-**Skills** — modos cognitivos que você ativa quando precisa. Cada um coloca o agente num mindset específico com um trabalho específico.
+You say the same things, with different words, every time. The output quality depends on how well you translate your pattern in that specific moment.
 
-| Skill | Quando | O que faz |
+highermind-code-skills solves this. You translate your pattern once. Then it's always there.
+
+---
+
+## How It Works
+
+Two layers:
+
+**CLAUDE.md** — your identity. Always active. Every project, every session. The agent knows who you are, what your bar is, and that mediocrity is not an option. You never have to explain this again.
+
+**Skills** — cognitive modes you activate when needed. Each puts the agent in a specific mindset with a specific job.
+
+| Skill | When | What It Does |
 | --- | --- | --- |
-| `/hm-init` | Início de projeto | Melhores ferramentas, melhor estrutura, melhores práticas. World-class desde o primeiro arquivo. |
-| `/hm-engineer` | Validar código | Arquitetura, segurança, performance, custo, qualidade. Todas as camadas. Production-grade. |
-| `/hm-designer` | Validar interface | Pra onde o software está indo, não pra onde ele esteve. Sofisticação, encantamento, beleza. |
-| `/hm-qa` | Testar tudo | Roda, quebra, verifica que funciona. Edge cases, fluxos, agente, infra, uso real. |
-| `/hm-deploy` | Validar deploy | Containers, migrations, reprodutibilidade, segurança. Pronto pra sair do local. |
+| `/hm-init` | Project start | Best tools, best structure, best practices. World-class from the first file. |
+| `/hm-architect` | System design | Patterns, data models, API contracts, scaling strategy. |
+| `/hm-engineer` | Validate code | Architecture, security, performance, cost, quality. All layers. Production-grade. |
+| `/hm-designer` | Validate interface | Where software is going, not where it was. Sophistication, delight, beauty. |
+| `/hm-qa` | Test everything | Run, break, verify it works. Edge cases, flows, agent, infra, real usage. |
+| `/hm-deploy` | Validate deploy | Containers, migrations, reproducibility, security. Ready to leave local. |
+| `/hm-security` | Security audit | Vulnerabilities, compliance, data protection, attack prevention. |
+| `/hm-refactor` | Code improvement | Structure, naming, architecture, technical debt. |
+| `/hm-document` | Documentation | ADRs, README, API docs, inline comments. |
+| `/hm-optimize` | Performance | Profiling, bottlenecks, caching, database, frontend. |
 
-> Skills de direção (`/hm-align`, `/hm-sequoia`) estão em [highermind-business-skills](https://github.com/rodrigohighermind/highermind-business-skills).
-
----
-
-### O fluxo
-
-```
-/hm-init       você começa um projeto novo. ele nasce certo.
-[constrói]     você dirige, o agente executa.
-/hm-designer   você valida se a interface está na barra.
-/hm-engineer   você valida se o código está na barra.
-/hm-qa         você verifica que realmente funciona.
-/hm-deploy     você valida que sobe, roda e reproduz.
-```
-
-Você não precisa usar as quatro toda vez. Use o que o momento pede. `/hm-engineer` e `/hm-designer` podem rodar várias vezes enquanto você itera.
-
-> Pra validar direção e estratégia, use as [business skills](https://github.com/rodrigohighermind/highermind-business-skills): `/hm-align` (é a coisa certa?) e `/hm-sequoia` (está indo pro futuro?).
+> Direction skills (`/hm-align`, `/hm-sequoia`) are in [highermind-business-skills](https://github.com/rodrigohighermind/highermind-business-skills).
 
 ---
 
-### Demo
+## The Flow
 
 ```
-Você:  Preciso construir o fluxo de aplicação pra uma comunidade de founders.
-       Membros aplicam, são avaliados, aceitos ou colocados em waitlist.
-
-Você:  /hm-init
-
-Claude: [Seleciona Next.js 15, Tailwind, Supabase, Resend pra emails.
-        Estrutura monorepo. Configura auth, schema do banco, rotas de API,
-        framework de testes. Tudo organizado, production-grade
-        desde o primeiro commit.]
-
-Você:  Constrói o fluxo de aplicação.
-
-Claude: [Implementa: formulário multi-step, fila de revisão, motor de
-        decisão, notificações por email, tracking de status, lógica
-        de reaplicação.]
-
-Você:  /hm-designer
-
-Claude: O formulário usa layout padrão com cards e bordas cinza.
-        Isso é software de 2020. Problemas:
-        - Sem hierarquia visual. Toda pergunta tem o mesmo peso.
-        - Tipografia padrão. Sem intenção editorial.
-        - Fundo claro, sem dark mode.
-        - Parece um onboarding de SaaS, não um gateway.
-
-        Correção: uma pergunta por tela, interface dark, transições
-        cinematográficas, tipografia editorial. A aplicação deve parecer
-        uma experiência, não um formulário.
-
-Você:  /hm-engineer
-
-Claude: [CRÍTICO] Race condition: revisores concorrentes podem aceitar
-        o mesmo aplicante, disparando emails de boas-vindas duplicados.
-        Fix: optimistic locking no status de revisão.
-
-        [CRÍTICO] Sem rate limiting no endpoint de aplicação.
-        Fix: middleware de rate limiter, 3 submissões por email por dia.
-
-        [ALTO] Fila de revisão expõe emails dos aplicantes pra todos
-        os revisores sem controle de acesso por role.
-        Fix: mascarar emails, adicionar modelo de permissão por revisor.
-
-        Arquitetura sólida. Data flow limpo.
-        3 findings. Corrigir os críticos antes de shippar.
-
-Você:  [corrige tudo]
-
-Você:  /hm-qa
-
-Claude: [Roda suite de testes completa. Navega fluxo de aplicação end to end.
-        Testa: submissão, submissão duplicada, campos vazios, aceitar,
-        rejeitar, waitlist, reaplicação, revisões concorrentes,
-        entrega de email, viewport mobile.]
-
-        12/12 cenários passaram. Fluxo de aplicação funciona end to end.
-        Um issue menor: tela de sucesso não renderiza corretamente
-        em viewports abaixo de 375px. Não bloqueia.
+/hm-init          you start a new project. it starts right.
+[build]           you direct, the agent executes.
+/hm-architect     you design the system architecture.
+/hm-designer      you validate the interface is at the bar.
+/hm-engineer      you validate the code is at the bar.
+/hm-qa            you verify it actually works.
+/hm-deploy        you validate it builds, runs, and reproduces.
 ```
+
+You don't need to use all of them every time. Use what the moment requires. `/hm-engineer` and `/hm-designer` can run multiple times while you iterate.
+
+> To validate direction and strategy, use the [business skills](https://github.com/rodrigohighermind/highermind-business-skills): `/hm-align` (is this the right thing?) and `/hm-sequoia` (is it going to the future?).
 
 ---
 
-### Pra quem é isso
+## For Whom This Is
 
-Você constrói porque não consegue não construir. Você usa Claude Code como seu time de dev. Você sabe exatamente como é world-class, mas está cansado de traduzir esse padrão em palavras toda sessão.
+You build because you can't not build. You use Claude Code as your dev team. You know exactly what world-class looks like, but you're tired of translating this standard into words every session.
 
-Isso codifica o seu padrão uma vez. O agente opera no seu nível desde o primeiro comando.
+This encodes your standard once. The agent operates at your level from the first command.
 
 ---
 
 ## `/hm-init`
 
-**Início de projeto.**
+**Project start.**
 
-Você abre um projeto novo. Digita `/hm-init` e descreve o que quer construir. O agente não faz só scaffold. Ele toma decisões:
+You open a new project. Type `/hm-init` and describe what you want to build. The agent doesn't just scaffold. It makes decisions:
 
-- O melhor framework pra esse tipo de projeto (com framework de decisão ponderado)
-- O melhor banco de dados, ORM, solução de auth
-- A melhor estrutura de pastas e patterns de arquitetura
-- Agent-first como default arquitetural (quando aplicável)
-- Infraestrutura local com Docker Compose desde o dia 1
-- Restrições de custo como parte do design
-- Setup de testes desde o dia um
-- Gerenciamento de environments
-- Formatação e linting do código
+- The best framework for this type of project (with weighted decision framework)
+- The best database, ORM, auth solution
+- The best folder structure and architecture patterns
+- Agent-first as default architectural (when applicable)
+- Local infrastructure with Docker Compose from day 1
+- Cost constraints as part of design
+- Test setup from day one
+- Environment management
+- Code formatting and linting
 
-Cada escolha é justificada contra critérios explícitos: fit pro problema, performance, custo em produção, maturidade, ecossistema, DX. Nada é padrão. Nada é "a gente geralmente usa isso."
+Each choice is justified against explicit criteria: fit for problem, performance, production cost, maturity, ecosystem, DX. Nothing is default. Nothing is "we usually use this."
 
-O padrão: se um time de engenharia world-class olhasse pra esse projeto no dia um, diria "é assim que se começa um projeto."
+The standard: if a world-class engineering team looked at this project on day one, they would say "this is how you start a project."
+
+---
+
+## `/hm-architect`
+
+**System design.**
+
+You describe what needs to be built. The agent designs the system:
+
+- System boundaries and trust boundaries
+- Architecture pattern (monolith, microservices, event-driven, agent-first)
+- Data layer design (database choice, schema, indexes)
+- API contracts (REST/GraphQL/RPC)
+- Scaling strategy (10x and 100x considerations)
+
+The standard: the architecture should be explainable in 30 minutes to a new engineer and should scale without fundamental redesign.
 
 ---
 
 ## `/hm-engineer`
 
-**Validar código.**
+**Validate code.**
 
-Você digita `/hm-engineer` e o agente audita tudo. Não é lint. Não é estilo. É estrutura, segurança, custo e resiliência.
+You type `/hm-engineer` and the agent audits everything. Not lint. Not style. Structure, security, cost, and resilience.
 
-Começa com um baseline inegociável de engenheiro senior (zero bare except, zero any types, zero fire-and-forget, zero secrets hardcoded). Depois audita:
+Starts with a non-negotiable senior engineer baseline (zero bare except, zero any types, zero fire-and-forget, zero hardcoded secrets). Then audits:
 
-- **Arquitetura**: responsabilidades, boundaries, data flow, agent loops
-- **Segurança**: injection, auth bypass, secrets, trust boundaries, CSRF, ports expostos
-- **Performance**: N+1 queries, indexes, re-renders, bundle size, caching, I/O paralelo
-- **Custo x Performance**: API calls justificadas, contexto mínimo em LLMs, token usage consciente
-- **Dados sagrados**: nenhuma operação destrutiva sem confirmação, volumes nomeados, migrations seguras
-- **Infraestrutura**: Docker rebuild vs restart, health checks, ports, migrations
-- **Resiliência**: tratamento de erros, retry logic, failure modes, race conditions
-- **Qualidade**: testes significativos, naming, abstrações, dependências
-- **Escala**: gargalos em 10x e 100x
+- **Architecture**: responsibilities, boundaries, data flow, agent loops
+- **Security**: injection, auth bypass, secrets, trust boundaries, CSRF, exposed ports
+- **Performance**: N+1 queries, indexes, re-renders, bundle size, caching, parallel I/O
+- **Cost x Performance**: justified API calls, minimum context in LLMs, conscious token usage
+- **Sacred data**: no destructive operation without confirmation, named volumes, safe migrations
+- **Infrastructure**: Docker rebuild vs restart, health checks, ports, migrations
+- **Resilience**: error handling, retry logic, failure modes, race conditions
+- **Quality**: meaningful tests, naming, abstractions, dependencies
+- **Scale**: bottlenecks at 10x and 100x
 
-O padrão: se você estivesse vendendo esse software e o comprador contratasse engenheiros pra auditar, eles não encontrariam nada pra reclamar.
+The standard: if you were selling this software and the buyer hired the best engineers in the world to audit the codebase, they wouldn't find anything to complain about.
 
 ---
 
 ## `/hm-designer`
 
-**Validar interface.**
+**Validate interface.**
 
-Não é "faz bonito." É visão.
+Not "make it pretty." It's vision.
 
-O design de software está se movendo. O que parecia moderno em 2020 parece datado agora. O que parece moderno agora vai parecer datado em 2028. `/hm-designer` não valida contra o padrão de hoje. Valida contra pra onde o software está indo.
+Software design is moving. What looked modern in 2020 looks dated now. What looks modern now will look dated in 2028. `/hm-designer` doesn't validate against today's standard. It validates against where software is going.
 
-A barra:
+The bar:
 
-- **Sofisticação**: cada elemento tem uma razão pra existir. Nada decorativo. Nada de encher espaço.
-- **Diferenciação**: essa interface só poderia pertencer a esse produto. Não é um template com conteúdo trocado.
-- **Experiência**: usar esse software precisa parecer alguma coisa. Não neutro. Não invisível. Intencional.
-- **Encantamento**: momentos que fazem a pessoa pausar e pensar "isso é lindamente feito."
-- **Usabilidade**: sem esforço. O usuário nunca fica na dúvida do que fazer.
-- **Beleza**: baseado nos produtos mais belos que a humanidade construiu. Apple. Airbnb. Linear. Stripe. Vercel.
+- **Sophistication**: every element has a reason to exist. Nothing decorative. Nothing filler.
+- **Differentiation**: this interface could only belong to this product. Not a template with swapped content.
+- **Experience**: using this software needs to feel like something. Not neutral. Not invisible. Intentional.
+- **Delight**: moments that make someone pause and think "this is beautifully made."
+- **Usability**: effortless. The user never wonders what to do.
+- **Beauty**: based on the most beautiful products humanity has built. Apple. Airbnb. Linear. Stripe. Vercel.
 
-O que é rejeitado:
-- Qualquer coisa que parece que foi construída de um template
-- Qualquer coisa que poderia pertencer a qualquer produto
-- Qualquer coisa que usa light mode sem considerar dark mode
-- Qualquer coisa com tipografia padrão, espaçamento padrão, tudo padrão
-- Qualquer coisa que prioriza "shippar rápido" em vez de "shippar certo"
+What's rejected:
+- Anything that looks like it was built from a template
+- Anything that could belong to any product
+- Anything that uses light mode without considering dark mode
+- Anything with default typography, default spacing, everything default
+- Anything that prioritizes "ship fast" over "ship right"
 
-O padrão: mostre essa interface pra alguém com gosto. Não um designer. Alguém com gosto. Essa pessoa deve sentir que quem construiu isso se importa profundamente com o craft.
+The standard: show this interface to someone with taste. Not a designer. Someone with taste. This person should feel that whoever built this deeply cares about the craft.
 
 ---
 
 ## `/hm-qa`
 
-**Testar tudo.**
+**Test everything.**
 
-Código que não é testado não existe. `/hm-qa` roda tudo:
+Code that isn't tested doesn't exist. `/hm-qa` runs everything:
 
-- Testes unitários pra lógica de negócio
-- Testes de integração pra endpoints de API e fluxos de dados
-- Testes end-to-end pros fluxos críticos do usuário
-- Testes de edge case (estados vazios, valores limites, operações concorrentes)
-- **Verificação de infraestrutura** (containers sobem? migrations rodam? ports corretos? dados persistem?)
-- **Verificação de agente** (tool loops terminam? não alucina tools? custo por interação?)
-- **Integridade de dados** (persistência entre restarts, migrations não-destrutivas, backups)
-- **Check de custo** (API calls por fluxo, contexto mínimo, custo por usuário/mês)
-- Verificação em viewport mobile
-- Testes de performance e acessibilidade básica
+- Unit tests for business logic
+- Integration tests for API endpoints and data flows
+- End-to-end tests for critical user flows
+- Edge case tests (empty states, limit values, concurrent operations)
+- **Infrastructure verification** (containers start? migrations run? ports correct? data persists?)
+- **Agent verification** (tool loops terminate? doesn't hallucinate tools? cost per interaction?)
+- **Data integrity** (persistence between restarts, non-destructive migrations, backups)
+- **Cost check** (API calls per flow, minimum context, cost per user/month)
+- Mobile viewport verification
+- Basic performance and accessibility tests
 
-O agente não só roda testes. Ele pensa no que deveria ser testado e não está. Encontra os gaps.
+The agent doesn't just run tests. It thinks about what should be tested and isn't. Finds the gaps.
 
-O padrão: você deployaria isso com confiança numa sexta à noite.
+The standard: you would deploy this confidently on a Friday night.
 
 ---
 
 ## `/hm-deploy`
 
-**Validar deploy e infraestrutura.**
+**Validate deploy and infrastructure.**
 
-Você digita `/hm-deploy` e o agente valida que o projeto é reprodutível, seguro e pronto pra sair do local.
+You type `/hm-deploy` and the agent validates that the project is reproducible, secure, and ready to leave local.
 
-O que ele checa:
+What it checks:
 
-- **Docker**: containers sobem, ficam healthy, rebuild funciona, dados estão protegidos
-- **Environment**: .env.example completo, nenhum secret exposto, ports documentados
-- **Database**: migrations automáticas, schema consistente, dados persistentes
-- **Health**: endpoints de health check, monitoramento de dependências
-- **Reprodutibilidade**: clone limpo funciona com um comando
-- **Segurança**: ports mínimos, CORS correto, secrets fora de logs
+- **Docker**: containers start, stay healthy, rebuild works, data is protected
+- **Environment**: .env.example complete, no secrets exposed, ports documented
+- **Database**: automatic migrations, consistent schema, persistent data
+- **Health**: health check endpoints, dependency monitoring
+- **Reproducibility**: clean clone works with one command
+- **Security**: minimum ports, correct CORS, secrets out of logs
 
-O teste definitivo: um engenheiro novo entra no time na segunda e tem o projeto rodando antes do almoço.
+The ultimate test: a new engineer joins the team on Monday and has the project running before lunch.
 
 ---
 
-## Instalação
+## `/hm-security`
 
-**Requisitos:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Git](https://git-scm.com/).
+**Security audit.**
 
-### Passo 1: Instalar as skills
+You type `/hm-security` and the agent finds vulnerabilities before attackers do.
 
-Abra o Claude Code e rode:
+What it audits:
+- Authentication & authorization (password storage, sessions, MFA)
+- Data protection (encryption at rest/transit, PII handling)
+- Injection attacks (SQL, XSS, command injection)
+- API security (rate limiting, CORS, secrets)
+- Infrastructure (ports, debug endpoints, Docker security)
+- Error handling (no stack traces in production)
+
+The standard: no critical or high vulnerabilities. Security is foundation, not feature.
+
+---
+
+## `/hm-refactor`
+
+**Code improvement.**
+
+You type `/hm-refactor` and the agent improves code quality without changing behavior.
+
+What it improves:
+- Code structure (extract functions, remove dead code, simplify conditionals)
+- Naming (self-documenting variables and functions)
+- Architecture (circular dependencies, module boundaries, coupling)
+- Type safety (replace `any`, add missing types)
+- Performance (N+1 queries, caching, data structures)
+
+The standard: code should be easier to understand, modify, and extend after refactoring.
+
+---
+
+## `/hm-document`
+
+**Documentation.**
+
+You type `/hm-document` and the agent creates docs that actually get read and maintained.
+
+What it creates:
+- Architecture Decision Records (ADRs) for significant decisions
+- README.md with quick start, prerequisites, setup
+- API documentation for every endpoint
+- Runbooks for operational tasks
+- Inline comments for complex algorithms
+
+The standard: if it's not documented, it doesn't exist. Documentation is a first-class deliverable.
+
+---
+
+## `/hm-optimize`
+
+**Performance optimization.**
+
+You type `/hm-optimize` and the agent makes things faster without sacrificing correctness.
+
+What it optimizes:
+- Database (N+1 queries, indexes, query analysis)
+- Backend (async I/O, caching, batch operations)
+- Frontend (code splitting, lazy loading, memoization)
+- Infrastructure (CDN, compression, caching headers)
+
+The standard: measure first, optimize where it matters. The 80/20 rule applies.
+
+---
+
+## Installation
+
+**Requirements:** [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [Git](https://git-scm.com/).
+
+### Step 1: Install the skills
+
+Open Claude Code and run:
 
 ```
 git clone https://github.com/rodrigohighermind/highermind-code-skills.git ~/.claude/skills/highermind-code-skills && cd ~/.claude/skills/highermind-code-skills && chmod +x setup && ./setup
 ```
 
-### Passo 2: Configurar o CLAUDE.md
+### Step 2: Configure CLAUDE.md
 
-Copie o template incluído pra `~/.claude/CLAUDE.md` e customize:
+Copy the included template to `~/.claude/CLAUDE.md` and customize:
 
 ```
 cp ~/.claude/skills/highermind-code-skills/CLAUDE.md.template ~/.claude/CLAUDE.md
 ```
 
-Edite `~/.claude/CLAUDE.md` pra adicionar seu nome, seus projetos e suas especificidades.
+Edit `~/.claude/CLAUDE.md` to add your name, your projects, and your specifics.
 
-### O que é instalado
+### What is installed
 
-- Arquivos de skill em `~/.claude/skills/highermind-code-skills/`
-- Symlinks em `~/.claude/skills/hm-init`, `~/.claude/skills/hm-engineer`, `~/.claude/skills/hm-deploy`, etc.
-- `CLAUDE.md.template` como ponto de partida pro seu arquivo de identidade global
+- Skill files in `~/.claude/skills/highermind-code-skills/`
+- Symlinks in `~/.claude/skills/hm-init`, `~/.claude/skills/hm-engineer`, etc.
+- `CLAUDE.md.template` as a starting point for your global identity file
 
-Tudo fica dentro de `~/.claude/`. Nada toca seu PATH ou roda em background.
+Everything stays inside `~/.claude/`. Nothing touches your PATH or runs in background.
 
 ---
 
-## Adicionar a um projeto (opcional)
+## Adding to a project (optional)
 
-Pra compartilhar as skills com o time num repo específico:
+To share skills with the team in a specific repo:
 
 ```
 cp -Rf ~/.claude/skills/highermind-code-skills .claude/skills/highermind-code-skills && rm -rf .claude/skills/highermind-code-skills/.git && cd .claude/skills/highermind-code-skills && ./setup
@@ -289,36 +316,38 @@ cp -Rf ~/.claude/skills/highermind-code-skills .claude/skills/highermind-code-sk
 
 ---
 
-## Atualização
+## Update
 
 ```
 cd ~/.claude/skills/highermind-code-skills && git fetch origin && git reset --hard origin/main && chmod +x setup && ./setup
 ```
 
-## Desinstalação
+---
+
+## Uninstall
 
 ```
-for s in hm-init hm-engineer hm-designer hm-qa hm-deploy; do rm -f ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/highermind-code-skills
+for s in hm-init hm-architect hm-engineer hm-designer hm-qa hm-deploy hm-security hm-refactor hm-document hm-optimize; do rm -f ~/.claude/skills/$s; done && rm -rf ~/.claude/skills/highermind-code-skills
 ```
 
 ---
 
-## Filosofia
+## Philosophy
 
-Construído em cima da filosofia [Higher Mind](https://highermind.com.br):
+Built on the [Higher Mind](https://highermind.com.br) philosophy:
 
-**Primeiro o fundador. Depois a empresa. Depois o mundo.**
+**First the founder. Then the company. Then the world.**
 
-O mesmo vale pro software. Primeiro o padrão. Depois o código. Depois o produto. Se o padrão é world-class, tudo que vem depois também será.
+The same applies to software. First the standard. Then the code. Then the product. If the standard is world-class, everything that follows will be too.
 
-Empresas são só o subproduto. Software é só o subproduto. O que importa é a mente que decidiu construir.
+Companies are just the byproduct. Software is just the byproduct. What matters is the mind that decided to build.
 
 ---
 
-## Licença
+## License
 
 MIT
 
 ---
 
-Criado por [Rodrigo Lopes](https://github.com/rodrigohighermind), fundador do [Higher Mind](https://highermind.com.br).
+Created by [Rodrigo Lopes](https://github.com/rodrigohighermind), founder of [Higher Mind](https://highermind.com.br).

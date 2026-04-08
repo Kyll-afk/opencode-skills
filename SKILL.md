@@ -1,21 +1,26 @@
 # highermind-code-skills
 
-Cinco modos cognitivos de execução pro Claude Code, construídos na filosofia Higher Mind.
+Ten cognitive execution modes for Claude Code, built on the Higher Mind philosophy.
 
-## Skills disponíveis
+## Available Skills
 
-- `/hm-init` — Começar um novo projeto com as melhores ferramentas e estrutura
-- `/hm-engineer` — Validar código em todas as camadas (arquitetura, segurança, performance, custo, qualidade)
-- `/hm-designer` — Validar interface contra o mais alto padrão de design de software
-- `/hm-qa` — Testar tudo, encontrar gaps, verificar que funciona
-- `/hm-deploy` — Validar infraestrutura, containers, reprodutibilidade e segurança de deploy
+- `/hm-init` — Start a new project with the best tools and structure
+- `/hm-architect` — Design system architecture, patterns, and data models
+- `/hm-engineer` — Validate code across all layers (architecture, security, performance, cost, quality)
+- `/hm-designer` — Validate interface against the highest software design standard
+- `/hm-qa` — Test everything, find gaps, verify it works
+- `/hm-deploy` — Validate infrastructure, containers, reproducibility, and deploy security
+- `/hm-security` — Security audit, vulnerability detection, compliance
+- `/hm-refactor` — Improve code structure, naming, and reduce technical debt
+- `/hm-document` — Create ADRs, README, API docs, inline comments
+- `/hm-optimize` — Profile, identify bottlenecks, optimize database, frontend, backend
 
-Skills de direção estratégica (`/hm-align`, `/hm-sequoia`) estão em [highermind-business-skills](https://github.com/rodrigohighermind/highermind-business-skills).
+Direction skills (`/hm-align`, `/hm-sequoia`) are in [highermind-business-skills](https://github.com/rodrigohighermind/highermind-business-skills).
 
-Cada skill tem seu próprio SKILL.md na subpasta.
+Each skill has its own SKILL.md in its subfolder.
 
 ## CLAUDE.md
 
-O `CLAUDE.md.template` incluído fornece um arquivo de identidade global que define o padrão world-class como contexto always-on pra toda sessão.
+The included `CLAUDE.md.template` provides a global identity file that defines world-class standard as always-on context for every session.
 
-Construído na filosofia Higher Mind: primeiro o padrão, depois o código, depois o produto.
+Built on the Higher Mind philosophy: first the standard, then the code, then the product.
