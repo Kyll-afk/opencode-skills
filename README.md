@@ -1,6 +1,6 @@
 # opencode-skills
 
-Ten cognitive execution modes for OpenCode, built on the Higher Mind philosophy.
+Ten cognitive execution modes for [OpenCode](https://opencode.ai), built on the Higher Mind philosophy.
 
 ## Available Skills
 
@@ -19,26 +19,22 @@ Each skill has its own SKILL.md in its subfolder with proper OpenCode frontmatte
 
 ## Installation
 
-### For OpenCode
-
 Place skill folders in one of these locations:
 - Project: `.opencode/skills/<name>/SKILL.md`
 - Global: `~/.config/opencode/skills/<name>/SKILL.md`
-- Claude-compatible: `.claude/skills/<name>/SKILL.md`
-- Global Claude: `~/.claude/skills/<name>/SKILL.md`
 
-### Using Setup Script
+### Or use the setup script:
 
 ```bash
-git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.claude/skills/opencode-skills
-cd ~/.claude/skills/opencode-skills
+git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.config/opencode/skills/opencode-skills
+cd ~/.config/opencode/skills/opencode-skills
 chmod +x setup
 ./setup
 ```
 
 ## Usage
 
-In OpenCode or Claude Code, type:
+In OpenCode, type:
 ```
 /hm-init
 /hm-architect
