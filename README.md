@@ -1,6 +1,6 @@
-# opencode-skills
+# Codex Skills
 
-Cognitive execution modes for [OpenCode](https://opencode.ai). Each skill brings specialized expertise to different aspects of software development.
+Cognitive execution modes for [Codex](https://developers.openai.com/codex). Each skill brings specialized expertise to different aspects of software development.
 
 ## Skills Overview
 
@@ -21,29 +21,38 @@ Cognitive execution modes for [OpenCode](https://opencode.ai). Each skill brings
 ## Installation
 
 ```bash
-# Clone to your global skills folder
-git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.config/opencode/skills
+# Clone to Codex's skills folder
+git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.agents/skills
 
 # Or install specific skills
-cp -r skills/hm-animator ~/.config/opencode/skills/
+cp -r skills/hm-animator ~/.agents/skills/
 ```
 
 ## Usage
 
-In OpenCode, type the skill name:
+In Codex, invoke skills with `$` or use `/skills`:
 
 ```
-/hm-animator    # SVG animation
-/hm-designer    # UI/UX validation
-/hm-engineer    # Code auditing
-/hm-security    # Security review
+$hm-animator    # SVG animation
+$hm-designer    # UI/UX validation
+$hm-engineer    # Code auditing
+$hm-security    # Security review
 ...
 ```
+
+## Codex-Specific Features
+
+These skills follow the Agent Skills standard and support:
+
+- **`allow_implicit_invocation`**: Control auto-invocation via `agents/openai.yaml`
+- **Progressive disclosure**: Metadata loads first, full content loads on use
+- **`agents/openai.yaml`**: Configure UI metadata, icons, and invocation policy
+- **Skill installer**: `$skill-installer` to add curated skills
 
 ## Project Structure
 
 ```
-skills/
+~/.agents/skills/
 ├── hm-init/
 │   ├── README.md
 │   └── SKILL.md
