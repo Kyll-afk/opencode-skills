@@ -1,6 +1,6 @@
-# opencode-skills
+# Claude Code Skills
 
-Cognitive execution modes for [OpenCode](https://opencode.ai). Each skill brings specialized expertise to different aspects of software development.
+Cognitive execution modes for [Claude Code](https://code.claude.com). Each skill brings specialized expertise to different aspects of software development.
 
 ## Skills Overview
 
@@ -21,16 +21,16 @@ Cognitive execution modes for [OpenCode](https://opencode.ai). Each skill brings
 ## Installation
 
 ```bash
-# Clone to your global skills folder
-git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.config/opencode/skills
+# Clone to Claude Code's global skills folder
+git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.claude/skills
 
 # Or install specific skills
-cp -r skills/hm-animator ~/.config/opencode/skills/
+cp -r skills/hm-animator ~/.claude/skills/
 ```
 
 ## Usage
 
-In OpenCode, type the skill name:
+In Claude Code, type the skill name:
 
 ```
 /hm-animator    # SVG animation
@@ -40,10 +40,20 @@ In OpenCode, type the skill name:
 ...
 ```
 
+## Claude-Specific Features
+
+These skills support Claude Code's advanced features:
+
+- **`disable-model-invocation`**: Prevent auto-invocation, manual trigger only
+- **`allowed-tools`**: Grant tool permissions for the skill
+- **`context: fork`**: Run in isolated subagent
+- **`$ARGUMENTS`**: Pass arguments to skills
+- **`${CLAUDE_SKILL_DIR}`**: Reference skill's directory
+
 ## Project Structure
 
 ```
-skills/
+~/.claude/skills/
 ├── hm-init/
 │   ├── README.md
 │   └── SKILL.md
