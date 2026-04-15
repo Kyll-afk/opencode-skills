@@ -1,6 +1,6 @@
-# opencode-skills
+# Cursor Skills
 
-Cognitive execution modes for [OpenCode](https://opencode.ai). Each skill brings specialized expertise to different aspects of software development.
+Cognitive execution modes for [Cursor](https://cursor.com). Each skill brings specialized expertise to different aspects of software development.
 
 ## Skills Overview
 
@@ -21,16 +21,16 @@ Cognitive execution modes for [OpenCode](https://opencode.ai). Each skill brings
 ## Installation
 
 ```bash
-# Clone to your global skills folder
-git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.config/opencode/skills
+# Clone to Cursor's skills folder
+git clone https://github.com/Kyll-Afk/opencode-skills.git ~/.cursor/skills
 
 # Or install specific skills
-cp -r skills/hm-animator ~/.config/opencode/skills/
+cp -r skills/hm-animator ~/.cursor/skills/
 ```
 
 ## Usage
 
-In OpenCode, type the skill name:
+In Cursor, type the skill name in the Agent chat:
 
 ```
 /hm-animator    # SVG animation
@@ -40,10 +40,18 @@ In OpenCode, type the skill name:
 ...
 ```
 
+## Cursor-Specific Features
+
+These skills follow the Agent Skills standard and support:
+
+- **`disable-model-invocation`**: Prevent auto-invocation, manual trigger only
+- **Auto-discovery**: Skills are automatically detected from `.cursor/skills/`
+- **Nested directories**: Supports `.cursor/skills/` in subdirectories for monorepos
+
 ## Project Structure
 
 ```
-skills/
+~/.cursor/skills/
 ├── hm-init/
 │   ├── README.md
 │   └── SKILL.md
