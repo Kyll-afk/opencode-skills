@@ -2,7 +2,7 @@
 name: hm-document
 description: Create ADRs, README, API docs, runbooks, and inline comments for maintainable documentation.
 license: MIT
-compatibility: opencode
+compatibility: cursor
 metadata:
   workflow: documentation
 ---

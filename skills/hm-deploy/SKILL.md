@@ -2,7 +2,7 @@
 name: hm-deploy
 description: Validate infrastructure, containers, reproducibility, and deploy security. Ready to leave local.
 license: MIT
-compatibility: opencode
+compatibility: cursor
 metadata:
   workflow: deployment
 ---
