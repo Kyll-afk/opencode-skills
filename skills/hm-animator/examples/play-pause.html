@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play/Pause Toggle</title>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      background: #1a1a2e;
+      font-family: system-ui, sans-serif;
+    }
+
+    .player-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #6366f1;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      color: #fff;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .player-btn:hover {
+      transform: scale(1.1);
+      background: #818cf8;
+    }
+
+    .player-btn:active {
+      transform: scale(0.95);
+    }
+
+    .icon {
+      position: absolute;
+      transition: opacity 0.15s, transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .icon-play {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .icon-pause {
+      opacity: 0;
+      transform: scale(0.5) rotate(-90deg);
+    }
+
+    .player-btn.active .icon-play {
+      opacity: 0;
+      transform: scale(0.5) rotate(90deg);
+    }
+
+    .player-btn.active .icon-pause {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+
+    .label {
+      color: #fff;
+      font-size: 14px;
+      opacity: 0.6;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button id="playPause" class="player-btn" aria-label="Play">
+    <i class="ph-fill ph-play icon icon-play"></i>
+    <i class="ph-fill ph-pause icon icon-pause"></i>
+  </button>
+  <span class="label">Click to toggle</span>
+
+  <script>
+    const btn = document.getElementById('playPause');
+    btn.addEventListener('click', () => {
+      const isPlaying = btn.classList.toggle('active');
+      btn.setAttribute('aria-label', isPlaying ? 'Pause' : 'Play');
+    });
+  </script>
+</body>
+</html>

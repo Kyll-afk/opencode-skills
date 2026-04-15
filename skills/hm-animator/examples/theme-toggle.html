@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theme Toggle</title>
+  <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f0f0f;
+      font-family: system-ui, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light {
+      background: #f5f5f5;
+    }
+
+    .toggle {
+      width: 64px;
+      height: 64px;
+      cursor: pointer;
+      border-radius: 50%;
+      background: #1a1a2e;
+      border: none;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #ffeaa7;
+    }
+
+    body.light .toggle {
+      background: #ffeaa7;
+      color: #1a1a2e;
+      box-shadow: 0 0 30px rgba(255, 234, 167, 0.5);
+    }
+
+    .toggle:hover {
+      transform: scale(1.1);
+    }
+
+    .toggle:active {
+      transform: scale(0.95);
+    }
+
+    .icon-sun, .icon-moon {
+      position: absolute;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+
+    .icon-sun {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    .icon-moon {
+      opacity: 0;
+      transform: rotate(-90deg) scale(0.5);
+    }
+
+    body.light .icon-sun {
+      opacity: 0;
+      transform: rotate(90deg) scale(0.5);
+    }
+
+    body.light .icon-moon {
+      opacity: 1;
+      transform: rotate(0deg) scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <button id="toggle" class="toggle" aria-label="Toggle theme">
+    <i class="ph-bold ph-sun icon-sun"></i>
+    <i class="ph-bold ph-moon icon-moon"></i>
+  </button>
+
+  <script>
+    document.getElementById('toggle').addEventListener('click', function() {
+      document.body.classList.toggle('light');
+      const isLight = document.body.classList.contains('light');
+      this.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+    });
+  </script>
+</body>
+</html>
