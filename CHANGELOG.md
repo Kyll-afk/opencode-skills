@@ -1,80 +1,116 @@
 # Changelog
 
-Todas as mudanças notáveis neste projeto serão documentadas aqui.
+All notable changes to this project will be documented here.
 
-Formato baseado em [Keep a Changelog](https://keepachangelog.com/pt-BR/1.1.0/).
+Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+---
+
+## [3.0.0] — 2026-04-15
+
+Complete evolution with multi-AI tool support and new skills.
+
+### Added
+
+#### New skill: `/hm-htmlfirst`
+- Native browser APIs replacing JavaScript libraries
+- Popover API for tooltips/dropdowns
+- `<dialog>` for modals
+- Container Queries for responsive components
+- View Transition API for page transitions
+- Scroll-Driven Animations
+- Discrete property animations
+
+#### New skill: `/hm-animator`
+- SVG animation expert with icon libraries or pure CSS
+- Line drawing, morphing, pulse effects
+- Scroll sync with animation-timeline
+- Multi-phase logo reveals
+- Modal/dialog animations
+- GPU-friendly properties (transform, opacity)
+
+#### Multi-tool support
+- `main` branch: OpenCode skills
+- `claude` branch: Claude Code skills with `allowed-tools`, `disable-model-invocation`
+- `cursor` branch: Cursor skills with Agent Skills standard
+- `codex` branch: Codex skills with progressive disclosure
+
+### Updated
+
+- All skills now have individual README.md files
+- Unified frontmatter across all tools
+- Clean git history with proper commit messages
 
 ---
 
 ## [2.0.0] — 2026-04-03
 
-Evolução completa das skills baseada em aprendizados reais de 5+ projetos construídos com o framework (higher-mind-os, Scout, HM Finance, Orion, higher-mind-community).
+Complete evolution of skills based on real-world learnings from 5+ projects.
 
-### Adicionado
+### Added
 
-#### Nova skill: `/hm-deploy`
-- Validação completa de infraestrutura, containers e reprodutibilidade
-- Checklist de Docker (subida, rebuild, dados sagrados)
-- Validação de environment e secrets
-- Checklist de database e migrations
-- Health checks e monitoramento
-- Teste de reprodutibilidade (clone limpo)
-- Segurança de deploy (ports, CORS, HTTPS, secrets)
-- Tabela de ports dos projetos Higher Mind pra evitar colisões
+#### New skill: `/hm-deploy`
+- Complete infrastructure validation, containers, and reproducibility
+- Docker checklist (upload, rebuild, sacred data)
+- Environment and secrets validation
+- Database and migrations checklist
+- Health checks and monitoring
+- Reproducibility test (clean clone)
+- Deploy security (ports, CORS, HTTPS, secrets)
 
-#### `/hm-init` — Framework de decisão de stack
-- Tabela de critérios ponderados pra avaliação de stack (fit, performance, custo, maturidade, ecossistema, DX, hiring)
-- Anti-patterns de escolha explícitos
-- Seção de arquitetura agent-first como default (quando aplicável)
-- Infraestrutura local com Docker Compose desde o dia 1
-- Restrições de custo como parte do design (API calls, hosting, bandwidth)
-- Documentação obrigatória via ARCHITECTURE.md
-- Princípio "dados são sagrados" desde o primeiro docker-compose.yml
+#### `/hm-init` — Stack decision framework
+- Weighted criteria table for stack evaluation (fit, performance, cost, maturity, ecosystem, DX, hiring)
+- Explicit anti-patterns for choices
+- Agent-first architecture as default (when applicable)
+- Local infrastructure with Docker Compose from day 1
+- Cost restrictions as part of design (API calls, hosting, bandwidth)
+- Mandatory documentation via ARCHITECTURE.md
+- "Data is sacred" principle since first docker-compose.yml
 
-#### `/hm-engineer` — Padrão senior e novas camadas de auditoria
-- Baseline de engenheiro senior inegociável (zero bare except, zero any types, zero fire-and-forget, zero secrets hardcoded, zero queries sem limit)
-- Nova camada: **Custo x Performance** (API calls justificadas, contexto mínimo em LLMs, token usage consciente)
-- Nova camada: **Dados sagrados** (nenhuma operação destrutiva sem confirmação, volumes nomeados, migrations não-destrutivas)
-- Nova camada: **Infraestrutura** (Docker rebuild vs restart, migrations automáticas, health checks, ports)
-- Expansão de Performance: I/O paralelo, memoização
-- Expansão de Arquitetura: validação de agent loops (max iterations, token limits, timeout)
-- Regra: dados em risco é sempre CRÍTICO
+#### `/hm-engineer` — Senior standard and new audit layers
+- Non-negotiable senior baseline (zero bare except, zero any types, zero fire-and-forget, zero hardcoded secrets, zero queries without limit)
+- New layer: **Cost x Performance** (justified API calls, minimum context in LLMs, conscious token usage)
+- New layer: **Sacred Data** (no destructive operation without confirmation, named volumes, non-destructive migrations)
+- New layer: **Infrastructure** (Docker rebuild vs restart, automatic migrations, health checks, ports)
+- Performance expansion: parallel I/O, memoization
+- Architecture expansion: agent loop validation (max iterations, token limits, timeout)
+- Rule: data at risk is always CRITICAL
 
-#### `/hm-designer` — Agent-first UI e pixel perfect
-- Filosofia agent-first: UI = visibilidade + override, não input principal
-- Referência A24 adicionada às referências estéticas
-- Seção **Pixel perfect**: zero tolerância a desalinhamentos, quebras, cortes
-- Padrões técnicos: full-width layout, shimmer (não spinner), dark-first, inline styles quando framework não coopera, transições 200-300ms
-- Novos anti-patterns: formulários onde agente deveria executar, spinners genéricos, layout centralizado em telas grandes
-- Regra: desalinhamento arquitetural (formulário vs agente) é finding
+#### `/hm-designer` — Agent-first UI and pixel perfect
+- Agent-first philosophy: UI = visibility + override, not main input
+- A24 aesthetic reference added
+- **Pixel perfect** section: zero tolerance for misalignment, breaks, cuts
+- Technical patterns: full-width layout, shimmer (not spinner), dark-first, inline styles when framework doesn't cooperate, 200-300ms transitions
+- New anti-patterns: forms where agent should execute, generic spinners, centered layout on large screens
+- Rule: architectural misalignment (form vs agent) is a finding
 
-#### `/hm-qa` — Infraestrutura, agente e custo como teste
-- Nova seção: **Verificação de infraestrutura** (containers, migrations, ports, volumes, rebuild, .env)
-- Nova seção: **Verificação de agente** (tool loops, alucinação de tools, token usage, custo por interação)
-- Nova seção: **Integridade de dados** (persistência, migrations não-destrutivas, backups, operações destrutivas)
-- Nova seção: **Check de custo** (API calls por fluxo, contexto mínimo, calls redundantes, custo por usuário/mês)
-- Output expandido com seções de Infraestrutura, Agente, Integridade de Dados e Custo
+#### `/hm-qa` — Infrastructure, agent, and cost as tests
+- New section: **Infrastructure verification** (containers, migrations, ports, volumes, rebuild, .env)
+- New section: **Agent verification** (tool loops, tool hallucination, token usage, cost per interaction)
+- New section: **Data integrity** (persistence, non-destructive migrations, backups, destructive operations)
+- New section: **Cost check** (API calls per flow, minimum context, redundant calls, cost per user/month)
+- Expanded output with Infrastructure, Agent, Data Integrity, and Cost sections
 
-### Mudado
+### Changed
 
-- Contagem de skills: 4 → 5 (adição de `/hm-deploy`)
-- SKILL.md parent atualizado pra refletir 5 skills
-- Todas as skills agora consideram agent-first como paradigma (quando aplicável)
-- Performance expandida de "não ter N+1" pra incluir custo de APIs externas e token management
+- Skill count: 4 → 5 (added `/hm-deploy`)
+- Parent SKILL.md updated to reflect 5 skills
+- All skills now consider agent-first as paradigm (when applicable)
+- Performance expanded from "no N+1" to include external API costs and token management
 
 ---
 
 ## [1.0.0] — 2026-03-12
 
-Release inicial.
+Initial release.
 
 ### Skills
-- `/hm-init` — Início de projeto com melhores ferramentas e estrutura
-- `/hm-engineer` — Validação de código em todas as camadas
-- `/hm-designer` — Validação de interface contra o mais alto padrão
-- `/hm-qa` — Quality assurance completo
+- `/hm-init` — Project start with best tools and structure
+- `/hm-engineer` — Code validation across all layers
+- `/hm-designer` — Interface validation against highest standard
+- `/hm-qa` — Complete quality assurance
 
-### Infraestrutura
-- Setup script com symlinks automáticos
-- CLAUDE.md.template como ponto de partida
-- Instalação global e por projeto
+### Infrastructure
+- Setup script with automatic symlinks
+- CLAUDE.md.template as starting point
+- Global and per-project installation
