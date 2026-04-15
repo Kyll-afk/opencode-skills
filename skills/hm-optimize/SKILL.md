@@ -1,10 +1,7 @@
 ---
 name: hm-optimize
 description: Profile, identify bottlenecks, optimize database queries, frontend rendering, and backend performance.
-license: MIT
-compatibility: opencode
-metadata:
-  workflow: optimization
+compatibility: codex
 ---
 
 # /hm-optimize — Performance Optimization

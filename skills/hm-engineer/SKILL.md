@@ -1,10 +1,7 @@
 ---
 name: hm-engineer
 description: Validate code across all layers — architecture, security, performance, cost, resilience, and quality. Production-grade auditing.
-license: MIT
-compatibility: opencode
-metadata:
-  workflow: review
+compatibility: codex
 ---
 
 ## What I Do

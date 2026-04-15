@@ -1,10 +1,7 @@
 ---
 name: hm-qa
 description: Test everything — unit tests, integration tests, e2e tests, edge cases, infrastructure, and agent verification.
-license: MIT
-compatibility: opencode
-metadata:
-  workflow: testing
+compatibility: codex
 ---
 
 ## What I Do

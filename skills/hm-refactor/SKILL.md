@@ -1,10 +1,7 @@
 ---
 name: hm-refactor
 description: Improve code structure, naming, architecture, and reduce technical debt without changing behavior.
-license: MIT
-compatibility: opencode
-metadata:
-  workflow: refactoring
+compatibility: codex
 ---
 
 # /hm-refactor — Code Refactoring

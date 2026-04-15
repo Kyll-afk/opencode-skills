@@ -1,3 +1,9 @@
+---
+name: hm-security-auth
+description: Authentication and authorization security checklist. Password hashing, token storage, JWT best practices, and API security.
+compatibility: codex
+---
+
 [Authentication Security Checklist]
 
 Passwords hashed with bcrypt or argon2 (minimum 12 rounds)
