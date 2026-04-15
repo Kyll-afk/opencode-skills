@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modal Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #111111;
+      font-family: system-ui, sans-serif;
+    }
+
+    .trigger-btn {
+      padding: 16px 32px;
+      background: #FDAE02;
+      color: #111;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .trigger-btn:hover {
+      background: #ffc107;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(253, 174, 2, 0.3);
+    }
+
+    .trigger-btn:active {
+      transform: scale(0.95);
+    }
+
+    /* Backdrop */
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(0px);
+      opacity: 0;
+      visibility: hidden;
+      will-change: opacity, backdrop-filter;
+      transition: opacity 0.3s ease, backdrop-filter 0.3s ease;
+    }
+
+    .backdrop.open {
+      opacity: 1;
+      visibility: visible;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      max-width: 480px;
+      background: #1a1a1a;
+      border-radius: 24px;
+      border: 1px solid #2a2a2a;
+      padding: 32px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, -50%) scale(0.9) translateY(20px);
+      will-change: transform, opacity;
+      transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .modal.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1) translateY(0);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .modal-title {
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .close-btn {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2a2a2a;
+      border: none;
+      border-radius: 50%;
+      color: #888;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .close-btn:hover {
+      background: #3a3a3a;
+      color: #fff;
+    }
+
+    .close-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .modal-body {
+      color: #888;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .backdrop, .modal, .trigger-btn, .close-btn {
+        transition: none !important;
+      }
+      .backdrop.open { opacity: 1; }
+      .modal.open { opacity: 1; transform: translate(-50%, -50%) scale(1) translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <button class="trigger-btn" id="openBtn">Open Modal</button>
+
+  <div class="backdrop" id="backdrop"></div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true">
+    <div class="modal-header">
+      <h2 class="modal-title">Modal Title</h2>
+      <button class="close-btn" id="closeBtn" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Modal with entrance animation only.</p>
+    </div>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById('openBtn');
+    const closeBtn = document.getElementById('closeBtn');
+    const backdrop = document.getElementById('backdrop');
+    const modal = document.getElementById('modal');
+
+    function openModal() {
+      backdrop.classList.add('open');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) {
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>

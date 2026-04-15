@@ -131,6 +131,35 @@ Use `<mask>` with stroke-dashoffset to reveal fills progressively:
 
 The stroke acts as a "brush" revealing the fill below.
 
+### Modal/Dialog Animations
+For modal open/close effects:
+
+```
+GPU-friendly properties only:
+- transform (scale, translate)
+- opacity
+
+AVOID:
+- backdrop-filter (expensive, causes lag)
+- box-shadow animations
+- width/height changes
+```
+
+**Entrance pattern:**
+```css
+.modal {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.9) translateY(20px);
+  transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal.open {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1) translateY(0);
+}
+```
+
+**Exit animations**: Often simpler to just reverse the entrance. Avoid over-engineering exit — users expect quick dismissal.
+
 ### Use Icon Libraries When Appropriate
 Don't hand-craft every icon from scratch. Use established icon libraries:
 
@@ -201,6 +230,7 @@ See `examples/` folder for working implementations:
 | `theme-toggle.html` | Icon library + opacity | Sun ↔ Moon toggle |
 | `play-pause.html` | Icon library + scale | Play ↔ Pause button |
 | `animation-test.html` | SVG/CSS basics | Pulsing, drawing, morphing |
+| `modal-animation.html` | Modal entrance | GPU-friendly transform + opacity |
 
 ---
 
