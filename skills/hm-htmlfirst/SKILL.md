@@ -2,7 +2,7 @@
 name: hm-htmlfirst
 description: Native browser APIs replacing JavaScript libraries. HTML-first philosophy using Popover, dialog, Container Queries, View Transitions, and Scroll-Driven Animations.
 license: MIT
-compatibility: opencode
+compatibility: codex
 metadata:
   workflow: create
 ---

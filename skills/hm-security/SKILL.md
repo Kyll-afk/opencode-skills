@@ -2,7 +2,7 @@
 name: hm-security
 description: Security audit, vulnerability detection, compliance checking, and attack prevention.
 license: MIT
-compatibility: opencode
+compatibility: codex
 metadata:
   workflow: security
 ---

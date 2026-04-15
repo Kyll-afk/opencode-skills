@@ -2,9 +2,7 @@
 name: hm-animator
 description: World-class SVG animation expert. High-performance motion using icon libraries or pure SVG/CSS. Narrative storytelling through vector graphics.
 license: MIT
-compatibility: opencode
-metadata:
-  workflow: create
+compatibility: codex
 ---
 
 ## What I Do

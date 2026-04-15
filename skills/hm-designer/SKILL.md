@@ -2,7 +2,7 @@
 name: hm-designer
 description: Validate interface against the highest software design standard. Sophistication, delight, and beauty.
 license: MIT
-compatibility: opencode
+compatibility: codex
 metadata:
   workflow: design
 ---

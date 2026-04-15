@@ -1,3 +1,10 @@
+---
+name: hm-security-auth
+description: Authentication and API security checklists. Use when implementing auth, login, registration, or reviewing security.
+license: MIT
+compatibility: codex
+---
+
 [Authentication Security Checklist]
 
 Passwords hashed with bcrypt or argon2 (minimum 12 rounds)

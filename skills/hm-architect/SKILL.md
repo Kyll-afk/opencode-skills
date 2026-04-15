@@ -2,7 +2,7 @@
 name: hm-architect
 description: Design system architecture, patterns, data models, API contracts, and scaling strategy.
 license: MIT
-compatibility: opencode
+compatibility: codex
 metadata:
   workflow: design
 ---

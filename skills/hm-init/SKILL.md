@@ -2,7 +2,7 @@
 name: hm-init
 description: Start a new project with the best tools, structure, and practices. World-class from the first commit.
 license: MIT
-compatibility: opencode
+compatibility: codex
 metadata:
   workflow: development
 ---
